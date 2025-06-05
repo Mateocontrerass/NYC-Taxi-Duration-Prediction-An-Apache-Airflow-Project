@@ -52,27 +52,6 @@ This project demonstrates key MLOps practices:
 
 ## 🚀 Getting Started
 
-```bash
-# Create and activate virtual environment
-python -m venv mlops-env
-source mlops-env/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start MLflow server (in one terminal)
-mlflow ui --backend-store-uri sqlite:///mlflow.db
-
-# Start Airflow scheduler and webserver (in other terminals)
-airflow scheduler
-airflow webserver --port 8080
-
-# Trigger the DAG manually from the Airflow UI
-```
-
-
-
-## Getting Started
 
 &gt; **Note:** All commands should be run inside your WSL (Windows Subsystem for Linux) terminal or your preferred Linux environment where Airflow and the project dependencies are installed.
 
@@ -85,13 +64,18 @@ airflow webserver --port 8080
 
 ### Order of Execution
 
-1. **Activate your virtual environment:**
+1. **Activate your virtual environment and install dependencies:**
 
    ```bash
    source mlops-w3/bin/activate
    ```
 
-2. **Start MLflow server in a dedicated terminal:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+
+1. **Start MLflow server in a dedicated terminal:**
 
    ```bash
    mlflow server 
@@ -101,13 +85,13 @@ airflow webserver --port 8080
      --port 5000
    ```
 
-3. **Initialize Airflow (only once, or if you reset the database):**
+2. **Initialize Airflow (only once, or if you reset the database):**
 
    ```bash
    airflow db init
    ```
 
-4. **Start the Airflow scheduler and webserver in separate terminals:**
+3. **Start the Airflow scheduler and webserver in separate terminals:**
 
    Terminal 1:
    ```bash
@@ -116,7 +100,7 @@ airflow webserver --port 8080
 
    Terminal 2:
    ```bash
-   airflow webserver
+   airflow webserver --port 8080
    ```
 
 5. **Open Airflow UI:**
