@@ -128,3 +128,37 @@ This project demonstrates key MLOps practices:
 > - Make sure to activate your virtual environment (`source mlops-w3/bin/activate`) in each terminal before running commands.  
 > - Start MLflow server **before** running the training script to avoid errors connecting to the tracking server.  
 > - Follow this sequence every time you restart your environment or machine to ensure Airflow and MLflow run correctly.
+
+## Visual Proof of MLOps Pipeline
+
+Below are screenshots that illustrate the functioning components of the MLOps pipeline, including task orchestration with Airflow, experiment tracking with MLflow, and terminal-based model execution.
+
+---
+
+### Airflow UI
+
+- **DAGs Page:** Shows the registered DAG (`train_taxi_model_dag`) with its current state, last run, and scheduling status.  
+  ![Airflow DAGs Page](screenshots/Airflow-main-page.png)  
+
+- **DAG Graph View:** Visualizes task dependencies and execution flow within the DAG.  
+  ![Airflow DAG Graph](screenshots/airflow-detail-task.png)  
+
+- **Task Logs:** Displays logs from the model training task, including key output such as model coefficients and performance metrics.  
+  ![Airflow Task Logs](screenshots/airflow-task-log.png)  
+
+---
+
+### MLflow UI
+
+- **Experiments Overview:** Shows all tracked experiments, including `nyc-taxi-experiment`, and a summary of recent runs.  
+  ![MLflow Experiments](screenshots/mlflow-main.png)  
+
+- **Run Details:** Displays parameters, metrics (e.g., RMSE), and stored artifacts (e.g., serialized models, visualizations) from a specific run.  
+  ![MLflow Run Details](screenshots/mlflow-overview.png)  
+
+---
+
+### Terminal Output
+
+- **Training Script Execution:** Output logs from running `train.py` manually, confirming data load, training steps, and final RMSE.  
+  ![Terminal Output](screenshots/terminal-rus.png)  
